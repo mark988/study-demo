@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
 
     @RequestMapping(value = "/limit",method = RequestMethod.GET)
-    @CurrentLimiter(QPS=100)
+    @CurrentLimiter(QPS=1)
     public String test() throws InterruptedException {
         System.out.print("当前时间："+System.currentTimeMillis());
         System.out.printf("thread name :"+Thread.currentThread().getName());
