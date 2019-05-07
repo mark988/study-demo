@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.config;
 
 import brave.Tracing;
 import brave.context.slf4j.MDCCurrentTraceContext;

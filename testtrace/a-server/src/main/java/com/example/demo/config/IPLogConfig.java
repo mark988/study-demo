@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.config;
 
 import ch.qos.logback.classic.pattern.ClassicConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;

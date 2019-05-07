@@ -1,4 +1,4 @@
-package com.example.bserver;
+package com.example.cserver.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-public class BTestController {
+public class CTestController {
 
 
     @Value("${server.port}")
@@ -16,9 +16,9 @@ public class BTestController {
     @Value("${spring.application.name}")
     String SERVER_NAME;
 
-    @RequestMapping("/hello")
-    public String btest(@RequestParam String name){
-        log.info("我是远程服务b-server");
+    @RequestMapping("/c-hello")
+    public String ctest(@RequestParam String name){
+        log.info("C server is runing");
         return "I am  "+SERVER_NAME+" , port is "+PROT;
     }
 }

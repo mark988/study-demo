@@ -7,7 +7,7 @@
     <property name="LOG_FILE" value="logs\\${springAppName}.log"/>​
     <!-- You can override this to have a custom pattern -->
     <!-- 获取服务器IP地址或者机器名字 -->
-    <conversionRule conversionWord="ip" converterClass="com.example.bserver.IPLogConfig" />
+    <conversionRule conversionWord="ip" converterClass="com.example.bserver.config.IPLogConfig" />
 
     <property name="CONSOLE_LOG_PATTERN" value="%d [%ip ,${springAppName},%X{traceId},%X{spanId}] [%thread] %-5level %logger{36} - %msg%n"/>
 

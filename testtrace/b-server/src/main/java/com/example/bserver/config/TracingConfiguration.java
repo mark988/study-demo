@@ -1,4 +1,4 @@
-package com.example.bserver;
+package com.example.bserver.config;
 
 import brave.Tracing;
 import brave.context.slf4j.MDCCurrentTraceContext;
