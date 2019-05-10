@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ATestController {
 
     @Autowired
-    private  FeignService feignService;
+    private com.example.demo.FeignService feignService;
 
 
 

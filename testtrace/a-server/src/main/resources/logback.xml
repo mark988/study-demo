@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    ​
-    <springProperty scope="context" name="springAppName" source="spring.application.name"/>
-    <!-- Example for logging into the build folder of your project -->
-    <property name="LOG_FILE" value="logs\\${springAppName}.log"/>​
-    <!-- You can override this to have a custom pattern -->
-    <!-- 获取服务器IP地址或者机器名字 -->
-    <conversionRule conversionWord="ip" converterClass="com.example.demo.config.IPLogConfig" />
+    <conversionRule conversionWord="IpAddressConvert"     converterClass="com.example.demo.logbackExt.convert.IpAddressConvert" />
+    <!--
+    <conversionRule conversionWord="ThreadUUIDConvert"    converterClass="com.example.demo.logbackExt.convert.ThreadUUIDConvert" />
+    <conversionRule conversionWord="IncrementIdConvert"   converterClass="com.example.demo.logbackExt.convert.IncrementIdConvert" />
+-->
 
-    <property name="CONSOLE_LOG_PATTERN" value="%d [%ip ,${springAppName},%X{traceId},%X{spanId}] [%thread] %-5level %logger{36} - %msg%n"/>
+    <springProperty scope="context" name="SpringAppNameConvert" source="spring.application.name"/>
+    <!-- Example for logging into the build folder of your project -->
+    <property name="LOG_FILE" value="logs\\${SpringAppNameConvert}.log"/>​
+    <property name="CONSOLE_LOG_PATTERN" value="%d [%IpAddressConvert ,${SpringAppNameConvert},%X{traceId},%X{spanId}] [%thread] %-5level %logger{36} - %msg%n"/>
 
     <!-- Appender to log to console -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <!-- Minimum logging level to be presented in the console logs-->
             <level>INFO</level>
         </filter>
         <encoder>
@@ -22,6 +21,7 @@
             <charset>utf8</charset>
         </encoder>
     </appender>
+
     <!-- Appender to log to file -->​
     <appender name="flatfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${LOG_FILE}</file>
@@ -34,11 +34,26 @@
             <charset>utf8</charset>
         </encoder>
     </appender>
-    ​
-    ​
+
+
+
+    <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>127.0.0.1:9250</destination>
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <provider class="net.logstash.logback.composite.loggingevent.LoggingEventPatternJsonProvider">
+                <!--<pattern>{"IpAddress":"%IpAddressConvert","ThreadUUID":"%ThreadUUIDConvert","IncrementId":"%IncrementIdConvert","tags": ["springboot_elk_logback_web"]}</pattern>
+            -->
+                <pattern>{"IpAddress":"%IpAddressConvert","SpringAppName":"${SpringAppNameConvert}"},
+                          "traceId":%X{traceId},"spanId":%X{spanId},
+                          "tags": ["a-server-tag"]}</pattern>
+
+            </provider>
+        </encoder>
+    </appender>
+
     <root level="INFO">
-        <appender-ref ref="console"/>
-        <!-- uncomment this to have also JSON logs -->
         <appender-ref ref="flatfile"/>
+        <appender-ref ref="stash" />
+        <appender-ref ref="console"/>
     </root>
 </configuration>
