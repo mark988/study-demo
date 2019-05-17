@@ -1,0 +1,10 @@
+server:
+  port: 8080
+dubbo:
+  application:
+    name: consumer
+  registry:
+    address: nacos://127.0.0.1:8848   #接口注册服务地址
+#    address: zookeeper://127.0.0.1:2181  取消zk 注册使用 nacos注册
+  consumer:
+    timeout: 5000
