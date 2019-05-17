@@ -3,8 +3,19 @@ server:
 dubbo:
   application:
     name: consumer
+    id: consumer
+    qos-enable: false
   registry:
     address: nacos://127.0.0.1:8848   #接口注册服务地址
-#    address: zookeeper://127.0.0.1:2181  取消zk 注册使用 nacos注册
   consumer:
     timeout: 5000
+#############mysql config#############
+spring:
+  datasource:
+     driver-class-name: com.mysql.jdbc.Driver
+     url: jdbc:mysql://47.103.2.87:3306/db_gts_fescar?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+     username: root
+     password: root
+####mybatis####
+mybatis:
+  mapper-locations: classpath*:/mapper/*.xml

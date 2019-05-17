@@ -9,3 +9,10 @@ dubbo:
   registry:
 #    address: zookeeper://127.0.0.1:2181
     address: nacos://127.0.0.1:8848
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.103.2.87:3306/db_gts_fescar?useSSL=false&useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: root
+    password: root

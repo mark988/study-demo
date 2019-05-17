@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.common.response.ObjectResponse;
 import com.example.demo.server.ConsumerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ public class TestController {
     private ConsumerServiceImpl consumerService;
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
-    public String  test(){
-       return  consumerService.sayHello("aaaaaaaaaaaaaaaaaa");
+    public ObjectResponse test(){
+       return  consumerService.testTrans();
     }
 }
