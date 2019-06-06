@@ -21,12 +21,9 @@ public class TestController {
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public String test(Map<String,String> map){
-        /*log.info("aaaaaaaaaaaaaaaaaaaaaaa");
-        List<String> list = new ArrayList<String>();
-        list.add("google");
-        list.add("baidu");*/
+
         map.put("google","www.google.com");
         map.put("baidu","www.baidu.com");
-        return "index";
+        return "index?uid=1";
     }
 }
