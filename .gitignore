@@ -22,3 +22,6 @@ hs_err_pid*
 !/.mvn/wrapper/maven-wrapper.jar
 /data/
 *.db
+*/.mvn/*
+*/mvnw
+*/mvnw.cmd
