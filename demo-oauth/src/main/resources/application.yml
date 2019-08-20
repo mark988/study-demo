@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  redis:
+    host: 47.103.2.87
+    timeout: 10000ms
+    # database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+    password: maxiaoguang
+  cache:
+    type: redis
+
+justauth:
+  enabled: true
+  type:
+#    qq:
+#      client-id: 10******85
+#      client-secret: 1f7d************************d629e
+#      redirect-uri: http://oauth.xkcoding.com/demo/oauth/qq/callback
+    github:
+      client-id: 051ea1567d5a94b7b48b
+      client-secret: f8021f52464e529cc3d5d6de54030274a92eae03
+      redirect-uri: http://api.mayuyao.com:8080/oauth/githup/callback
