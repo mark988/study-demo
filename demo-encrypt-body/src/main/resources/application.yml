@@ -1,0 +1,22 @@
+rsa:
+  encrypt:
+    open: true
+    showLog: true
+    publicKey: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDQl5i4LWoxVdJqEGWv3cOQX0Qn
+      BJcvzRhcCsRf6Tr24S8L+e8Ac4CGqhe1awfHRsFRJ5tHV54rMRqbiI4YpSBQt7Yh
+      NBZdgmq9wwi/SlvxPpzYNHlhhI6bwebcSCqEb0vSMTrc8lnIdNdq9rf1qyD6PKPR
+      oYz5gWCKvG0bKlKoDQIDAQAB
+    privateKey: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBANCXmLgtajFV0moQ
+      Za/dw5BfRCcEly/NGFwKxF/pOvbhLwv57wBzgIaqF7VrB8dGwVEnm0dXnisxGpuI
+      jhilIFC3tiE0Fl2Car3DCL9KW/E+nNg0eWGEjpvB5txIKoRvS9IxOtzyWch012r2
+      t/WrIPo8o9GhjPmBYIq8bRsqUqgNAgMBAAECgYBELDeagiVByIXDamaBit3+klQo
+      2GQ9GC/M7SvvGL/Prhr9NAs7v4QS/wZOoZNiOqq1xlcGgwlLnnnOuVuPjHA5ujBs
+      1a1V6vNN2UNkhg374uCaQU8c1y7lrKwy0Zu0VXHAQ+5p3Rr2p8Dt33cVXTzwbfyg
+      kGyR5Rcjka95DTF6tQJBAOpx5CDsPNQzcJmJf4VnxG43TSyIU4PQZVmQ+ltIsroU
+      WftPlFDDSinMolshdD+CvjDrEA9ZZg1K+Ey27Fc/eP8CQQDjxTZeWkNiv5ewIi5v
+      ADkvn9foSc75+ChVTzUaBMFtbpJgmoCn77rYalgomSMUUSj4pUecusX0aZxSocWj
+      jzLzAkEAzzYCb6bczKD6cHm6n+prDw8JwsZrKiHSsisVXAERFq5OKXTYndk9f1xC
+      U1FqMYgZGZtpAmf9btpIQ2WZ1jNfeQJAOI5ShrEhBFcQgjKqlvNWP8YP5WTWWOlO
+      kog9Zj2CDfsjq4sRoSF8opodU89aj4PriXn4wyj5WEwU/cufeJJpEwJAFSoAISiW
+      lHrkF1gjvQuFUAec66a6Dowfkjq/IXPd6gdLvLI/7G+2rX2UPiNwFctpKaj5mmXh
+      1+8lC1yoG/ge1A==
