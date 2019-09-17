@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: app-demo
+exceptionnotice:
+  dinding:
+    phone-num: 15221933199
+    web-hook: https://oapi.dingtalk.com/robot/send?access_token=c4453c2f67c3d48aa668561aca1a84c2a38b4ce9058e9145972133033fc11439e
+  included-trace-package: com.example
+  notice-type: dingding
+  listen-type: common
+  open-notice: true
+  exclude-exceptions:
+    - java.lang.IllegalArgumentException
