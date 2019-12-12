@@ -2,10 +2,13 @@ package com.example.deferredresult;
 
 import com.example.deferredresult.entity.User;
 import com.example.deferredresult.mapper.UserMapper;
+import com.example.deferredresult.v2.AsyncVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
+
+import javax.websocket.RemoteEndpoint;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -113,12 +116,32 @@ public class TestController {
                 }
             }
         });
-        /**
-         * 返回结果
-         */
+
         return deferredResult;
     }
 
-
+    @Autowired
+    private MyTask myTask;
+    /**
+     * 例子3
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/test3")
+    public DeferredResult<Object> deferredResult3(@RequestParam String name, @RequestParam Integer age) throws Exception {
+        log.info("api test3 控制层执行线程:" + Thread.currentThread().getName());
+        /**
+         * 设置超时
+         */
+        DeferredResult<Object> deferredResult = new DeferredResult<Object>(10*1000L);
+        AsyncVo<Object, Object> asyncVo=new AsyncVo<>();
+        User u= new User();
+        u.setName(name);
+        u.setAge(age);
+        asyncVo.setParams(u);
+        asyncVo.setResult(deferredResult);
+        myTask.run(asyncVo);
+        return deferredResult;
+    }
 
 }
