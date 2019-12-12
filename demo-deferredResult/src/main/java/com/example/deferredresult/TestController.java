@@ -2,9 +2,11 @@ package com.example.deferredresult;
 
 import com.example.deferredresult.entity.User;
 import com.example.deferredresult.mapper.UserMapper;
+import com.example.deferredresult.service.UserService;
 import com.example.deferredresult.v2.AsyncVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.request.async.DeferredResult;
 
@@ -144,4 +146,15 @@ public class TestController {
         return deferredResult;
     }
 
+    @Autowired
+    UserService userService;
+
+    @RequestMapping(value = "/test4",method = RequestMethod.GET)
+    public String testTrans(@RequestParam String name,@RequestParam Integer age) {
+        log.info(" -----------api test4-------");
+        User u= new User();
+        u.setName(name);
+        u.setAge(age);
+        return  userService.addUser(u);
+    }
 }
