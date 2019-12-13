@@ -2,6 +2,7 @@ package com.example.deferredresult;
 
 import com.example.deferredresult.entity.User;
 import com.example.deferredresult.mapper.UserMapper;
+import com.example.deferredresult.service.AccessLimitServiceImpl;
 import com.example.deferredresult.service.UserService;
 import com.example.deferredresult.v2.AsyncVo;
 import lombok.extern.slf4j.Slf4j;
@@ -156,5 +157,29 @@ public class TestController {
         u.setName(name);
         u.setAge(age);
         return  userService.addUser(u);
+    }
+
+    /**
+     * 测试google 限流
+     */
+    @Autowired
+    private AccessLimitServiceImpl accessLimitService;
+
+    @RequestMapping(value = "/test5",method = RequestMethod.GET)
+    public String access(){
+        //尝试获取令牌
+        if(accessLimitService.tryAcquire()){
+            //模拟业务执行500毫秒
+            try {
+                Thread.sleep(500);
+            }catch (InterruptedException e){
+                e.printStackTrace();
+            }
+            log.info("access ok");
+            return "aceess success [ok]";
+        }else{
+            log.info("请求速度太快了...");
+            return "请求速度太快了...";
+        }
     }
 }

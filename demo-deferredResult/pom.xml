@@ -61,6 +61,12 @@
             <scope>provided</scope>
         </dependency>-->
 
+        <!-- google guava  使用这个包来解决限流问题-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.1-jre</version>
+        </dependency>
 
 
 
