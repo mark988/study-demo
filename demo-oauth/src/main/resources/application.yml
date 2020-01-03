@@ -24,6 +24,10 @@ justauth:
 #      client-secret: 1f7d************************d629e
 #      redirect-uri: http://oauth.xkcoding.com/demo/oauth/qq/callback
     github:
-      client-id: 051ea1567d5a94b7b48b
-      client-secret: f8021f52464e529cc3d5d6de54030274a92eae03
-      redirect-uri: http://api.mayuyao.com:8080/oauth/githup/callback
+       client-id: 051ea1567d5a94b7b48b
+       client-secret: f8021f52464e529cc3d5d6de54030274a92eae03
+       redirect-uri: http://api.mayuyao.com:8080/oauth/githup/callback
+    wechat:
+       client-id: wxec2abd7f930c6c4e
+       client-secret: f8021f52464e529cc3d5d6de54030274a92eae03
+       redirect-uri: http://api.mayuyao.com:8080/oauth/wechat/callback
