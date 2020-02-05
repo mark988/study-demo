@@ -13,14 +13,13 @@ public class TestHttpServer extends SimpleChannelInboundHandler<HttpObject> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HttpObject httpObject) throws Exception {
-        log.info("==============================================");
+        log.info("httpObject:{}",httpObject);
         if(httpObject instanceof HttpRequest) {
-            log.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
-             ByteBuf content = Unpooled.copiedBuffer("Hello world ", CharsetUtil.UTF_8);
+            ByteBuf content = Unpooled.copiedBuffer("Hello world", CharsetUtil.UTF_8);
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1,HttpResponseStatus.OK,content);
             response.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain");
             response.headers().set(HttpHeaderNames.CONTENT_LENGTH,content.readableBytes());
-            ctx.writeAndFlush(content);
+            ctx.writeAndFlush(response);
         }
     }
 }
