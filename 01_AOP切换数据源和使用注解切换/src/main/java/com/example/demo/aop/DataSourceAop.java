@@ -20,9 +20,6 @@ import lombok.extern.java.Log;
  * Copyright: Copyright (c) 2019
  * <p> 说明：动态数据源配置 </P>
  *
- * @version: V1.0
- * @author: BianPeng
- *
  */
 @Aspect
 @Component
