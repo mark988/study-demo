@@ -1,14 +1,11 @@
 package com.example.demo;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.IOException;
-
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -30,21 +27,11 @@ public class IndexController {
         int size = (int) file.getSize();
         System.out.println(fileName + "-->" + size);
         return "true";
-       /* String path = "F:/test" ;
-        File dest = new File(path + "/" + fileName);
-        if(!dest.getParentFile().exists()){
-            dest.getParentFile().mkdir();
-        }
-        try {
-            file.transferTo(dest);
-            return "true";
-        } catch (IllegalStateException e) {
+    }
 
-            e.printStackTrace();
-            return "false";
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "false";
-        }*/
+    @RequestMapping(value = "/user/add",method = RequestMethod.POST)
+    public String userAdd(@RequestBody User user){
+        log.info("name:{},age:{}",user.getName(),user.getAge());
+        return "ok";
     }
 }
