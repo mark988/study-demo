@@ -9,6 +9,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RunWith(SpringRunner.class)
@@ -26,6 +27,10 @@ public class DemoLettuceRedisApplicationTests {
         u.setPassword("123456");
         redisCacheTemplate.opsForValue().set("testuser", u);
         log.info("{}",redisCacheTemplate.opsForValue().get("testuser"));
+
+        redisCacheTemplate.opsForValue().set("testuser","hello",5, TimeUnit.SECONDS);
+
+        log.info("["+redisCacheTemplate.opsForValue().get("testuser1")+"]");
     }
 
 }

@@ -1,0 +1,12 @@
+spring:
+  redis:
+    timeout: 10000
+    host: 47.100.0.39
+    password: maxiaoguang
+    database: 0
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
